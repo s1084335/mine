@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>網頁程式設計</title>
+<style id="jsbin-css">
+     #e{text-align: center;margin: 15px;}
+     body{background-color: rgb(41, 221, 31);font-family: 標楷體;}
+    .a{text-align: center; border: 3px rgb(213, 96, 29)solid;font-size: 50px;border-radius: 99px;}
+    .b{font-size: 20px;color: rgb(64, 97, 196);}
+    .b:hover{background-color: chartreuse; font-size: 25px;}
+    #c{font-size: 40px;  margin-top: 10px;}
+    h1{font-size: 25px;text-align: left;}
+
+    ul{display: inline;}
+    ul li{display: inline-block;}
+    ul li:hover  ul{display: flex; flex-wrap: nowrap;}
+    ul li ul {position:static;display: none;}
+    ul li ul li {display: block;}
+    ul li ul li a {display: block ;}
+#count{
+  text-align: center;
+  top:150px;
+}
+
+button{
+  background-color:#369;
+  width: 90px;
+  height: 50px;
+  border-radius: 7px;
+  color: rgba(240,10,0,.5)
+}
+
+.input{
+  border-radius:5px;
+}
+
+.btn:hover{
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+    <div class="a">網頁作業區</div>
+        <ul>
+            <li><a href="#" style="text-decoration:none;"id="c">作業區</a>
+            <ul>
+                <li><a href="https://ecourse.ncyu.edu.tw/mod/assign/view.php?id=35470"class="b"target="_blank"style="text-decoration:none;">HW01</a></li>
+                <li><a href="https://0szmrf7yrww5if95pj9q3w-on.drv.tw/testweb/"class="b"target="_blank"style="text-decoration:none;">HW02</a></li>
+                <li><a href="https://9fajedg4l5ketidhg7cnaq-on.drv.tw/classlib/HW0201.html"class="b"target="_blank"style="text-decoration:none;">HW03</a></li>
+                <li><a href="https://9fajedg4l5ketidhg7cnaq-on.drv.tw/classlib/HW04.html"class="b"target="_blank"style="text-decoration:none;">HW04</a></li>
+                <li><a href="https://9fajedg4l5ketidhg7cnaq-on.drv.tw/classlib/HW05%EF%BC%8801%EF%BC%89.html"class="b"target="_blank"style="text-decoration:none;">HW05</a></li>
+                <li><a href="https://9fajedg4l5ketidhg7cnaq-on.drv.tw/classlib/HW06.html"class="b"target="_blank"style="text-decoration:none;">HW06</a></li>
+                <li><a href="https://9fajedg4l5ketidhg7cnaq-on.drv.tw/classlib/HW07(01).html"class="b"target="_blank"style="text-decoration:none;">HW07</a></li>
+                <li><a href=""class="b"target="_blank"style="text-decoration:none;">HW08</a></li>
+            </ul>
+        </li>
+        </ul>
+    <h1>BMI計算</h1>
+  <label for="">身高(公分):</label>
+<input id="height" class="input" type="unmber">
+  <br>
+  <label for="">體重(公斤):</label>
+<input id="weight" class="input" type="unmber">
+  <br>
+  <span>你的BMI為:<p id="answer"></p></span>
+  <button id="count" class="btn">計算</button>
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script id="jsbin-javascript">
+//偵測使用者按下Enter
+function enter(e){
+ if(e.keyCode === 13){
+   count();
+ };
+}
+//計算BMI並返回結果
+//如果有一個是空的 "請確認是否輸入完畢"
+function count (){
+  var height = $("#height").val();
+  var weight = $("#weight").val();
+  var result = 0;
+  
+  $("#answer").text(""); 
+
+  setTimeout(c,800)
+  
+  function c(){
+  if(height == "" | weight == ""){
+    
+   $("#answer").text("請確認是否輸入完畢"); 
+  }
+  else{
+  height = height/100;
+  result = weight /(height*height);
+  result = result * 100;
+  result = Math.floor(result);
+  result = result / 100;
+  $("#answer").text(result);
+      }  
+  }
+  
+  
+  
+}
+
+//偵測使用者的鍵盤
+$("#count").click(count);
+$("#weight").keypress(enter);
+$("#height").keypress(enter);
+</script>
+
+
+<script id="jsbin-source-css" type="text/css">#count{
+  position: absolute;
+  top:150px;
+}
+
+button{
+  background-color:#369;
+  width: 90px;
+  height: 50px;
+  border-radius: 7px;
+  color: rgba(240,10,0,.5)
+}
+
+.input{
+  border-radius:5px;
+}
+
+.btn:hover{
+  cursor: pointer;
+}
+
+</script>
+
+<script id="jsbin-source-javascript" type="text/javascript">//Dectect user press "Enter"
+function enter(e){
+ if(e.keyCode === 13){
+   count();
+ };
+}
+//計算BMI並傳回結果 
+//如果輸入欄位有一空格的就傳回 "請確認是否輸入完畢"
+function count (){
+  var height = $("#height").val();
+  var weight = $("#weight").val();
+  var result = 0;
+  
+  $("#answer").text(""); 
+
+  setTimeout(c,800)
+  
+  function c(){
+  if(height == "" | weight == ""){
+    
+   $("#answer").text("請確認是否輸入完畢"); 
+  }
+  else{
+  height = height/100;
+  result = weight /(height*height);
+  result = result * 100;
+  result = Math.floor(result);
+  result = result / 100;
+  $("#answer").text(result);
+      }  
+  }
+  
+  
+  
+}
+
+//偵測按下Enter鍵
+$("#count").click(count);
+$("#weight").keypress(enter);
+$("#height").keypress(enter);
+
+
+</script>
+<div id="e">
+    <picture>
+        <img src="https://pic.pimg.tw/kim7452/1485364307-250901911.jpg" title="BMI參考">
+    </picture>
+</div>
+</body>
+</html>
