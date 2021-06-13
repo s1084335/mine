@@ -1,49 +1,34 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>網頁程式設計</title>
-<style id="jsbin-css">
-     #e{text-align: center;margin: 15px;}
-     body{background-color: rgb(41, 221, 31);font-family: 標楷體;}
-    .a{text-align: center; border: 3px rgb(213, 96, 29)solid;font-size: 50px;border-radius: 99px;}
-    .b{font-size: 20px;color: rgb(64, 97, 196);}
-    .b:hover{background-color: chartreuse; font-size: 25px;}
-    #c{font-size: 40px;  margin-top: 10px;}
-    h1{font-size: 25px;text-align: left;}
+<!doctype html>
+<html lang="zh-tw">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <title>網頁程式設計</title>
+<style>
+    .b{font-size: 20px;color: rgb(64, 97, 196);}
+    .b:hover{background-color: rgb(12, 228, 240); font-size: 25px;}
+    #c{font-size: 40px;  margin-top: 10px;}
     ul{display: inline;}
     ul li{display: inline-block;}
     ul li:hover  ul{display: flex; flex-wrap: nowrap;}
     ul li ul {position:static;display: none;}
     ul li ul li {display: block;}
     ul li ul li a {display: block ;}
-#count{
-  text-align: center;
-  top:150px;
-}
 
-button{
-  background-color:#369;
-  width: 90px;
-  height: 50px;
-  border-radius: 7px;
-  color: rgba(240,10,0,.5)
-}
-
-.input{
-  border-radius:5px;
-}
-
-.btn:hover{
-  cursor: pointer;
-}
+    body{background-color: rgb(255, 0, 242);font-family: 標楷體;font-size: 35px; }
+    h1{text-align: center;border: 3px black solid;border-radius: 99px;background-color: rgb(31, 213, 98);}
 </style>
-</head>
-<body>
-    <div class="a">網頁作業區</div>
-        <ul>
+  </head>
+  <body>
+    <h1>網頁作業區</h1>
+    <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4"><ul>
             <li><a href="#" style="text-decoration:none;"id="c">作業區</a>
             <ul>
                 <li><a href="https://ecourse.ncyu.edu.tw/mod/assign/view.php?id=35470"class="b"target="_blank"style="text-decoration:none;">HW01</a></li>
@@ -53,134 +38,30 @@ button{
                 <li><a href="https://9fajedg4l5ketidhg7cnaq-on.drv.tw/classlib/HW05%EF%BC%8801%EF%BC%89.html"class="b"target="_blank"style="text-decoration:none;">HW05</a></li>
                 <li><a href="https://9fajedg4l5ketidhg7cnaq-on.drv.tw/classlib/HW06.html"class="b"target="_blank"style="text-decoration:none;">HW06</a></li>
                 <li><a href="https://9fajedg4l5ketidhg7cnaq-on.drv.tw/classlib/HW07(01).html"class="b"target="_blank"style="text-decoration:none;">HW07</a></li>
-                <li><a href=""class="b"target="_blank"style="text-decoration:none;">HW08</a></li>
+                <li><a href="https://s1084335.github.io/mine/HW08"class="b"target="_blank"style="text-decoration:none;">HW08</a></li>
             </ul>
         </li>
-        </ul>
-    <h1>BMI計算</h1>
-  <label for="">身高(公分):</label>
-<input id="height" class="input" type="unmber">
-  <br>
-  <label for="">體重(公斤):</label>
-<input id="weight" class="input" type="unmber">
-  <br>
-  <span>你的BMI為:<p id="answer"></p></span>
-  <button id="count" class="btn">計算</button>
-<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
-<script id="jsbin-javascript">
-//偵測使用者按下Enter
-function enter(e){
- if(e.keyCode === 13){
-   count();
- };
-}
-//計算BMI並返回結果
-//如果有一個是空的 "請確認是否輸入完畢"
-function count (){
-  var height = $("#height").val();
-  var weight = $("#weight").val();
-  var result = 0;
-  
-  $("#answer").text(""); 
+        </ul></div>
+        
+        <div class="col-md-8">
+          <form oninput="result.value=parseFloat(a.value)/((parseFloat(b.value)/100)*(parseFloat(b.value)/100))">
+          <p>體重:<input type="number" id="a" name="a" value="100">kg</p>
+          <p>身高:<input type="number" id="b" name="b" value="100">cm</p>
+          <p>BMI:<output name="result" for="a b">100</output></p>
+        </form>
+        </div>
+    </div>
+          </div>
 
-  setTimeout(c,800)
-  
-  function c(){
-  if(height == "" | weight == ""){
-    
-   $("#answer").text("請確認是否輸入完畢"); 
-  }
-  else{
-  height = height/100;
-  result = weight /(height*height);
-  result = result * 100;
-  result = Math.floor(result);
-  result = result / 100;
-  $("#answer").text(result);
-      }  
-  }
-  
-  
-  
-}
+    <!-- Optional JavaScript; choose one of the two! -->
 
-//偵測使用者的鍵盤
-$("#count").click(count);
-$("#weight").keypress(enter);
-$("#height").keypress(enter);
-</script>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 
-
-<script id="jsbin-source-css" type="text/css">#count{
-  position: absolute;
-  top:150px;
-}
-
-button{
-  background-color:#369;
-  width: 90px;
-  height: 50px;
-  border-radius: 7px;
-  color: rgba(240,10,0,.5)
-}
-
-.input{
-  border-radius:5px;
-}
-
-.btn:hover{
-  cursor: pointer;
-}
-
-</script>
-
-<script id="jsbin-source-javascript" type="text/javascript">//Dectect user press "Enter"
-function enter(e){
- if(e.keyCode === 13){
-   count();
- };
-}
-//計算BMI並傳回結果 
-//如果輸入欄位有一空格的就傳回 "請確認是否輸入完畢"
-function count (){
-  var height = $("#height").val();
-  var weight = $("#weight").val();
-  var result = 0;
-  
-  $("#answer").text(""); 
-
-  setTimeout(c,800)
-  
-  function c(){
-  if(height == "" | weight == ""){
-    
-   $("#answer").text("請確認是否輸入完畢"); 
-  }
-  else{
-  height = height/100;
-  result = weight /(height*height);
-  result = result * 100;
-  result = Math.floor(result);
-  result = result / 100;
-  $("#answer").text(result);
-      }  
-  }
-  
-  
-  
-}
-
-//偵測按下Enter鍵
-$("#count").click(count);
-$("#weight").keypress(enter);
-$("#height").keypress(enter);
-
-
-</script>
-<div id="e">
-    <picture>
-        <img src="https://pic.pimg.tw/kim7452/1485364307-250901911.jpg" title="BMI參考">
-    </picture>
-</div>
-</body>
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+    -->
+  </body>
 </html>
